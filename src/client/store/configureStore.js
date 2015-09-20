@@ -1,16 +1,29 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState);
+	/**
+	* Logs all actions and states after they are dispatched.
+	*/
+	const logger = store => next => action => {
+		console.group(action.type);
+		console.info('dispatching', action);
+		let result = next(action);
+		console.log('next state', store.getState());
+		console.groupEnd(action.type);
+		return result;
+	};
 
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextReducer = require('../reducers');
-      store.replaceReducer(nextReducer);
-    });
-  }
+	let createStoreWithMiddleware = applyMiddleware(logger)(createStore);
+	const store = createStoreWithMiddleware(rootReducer, initialState);
 
-  return store;
+	if (module.hot) {
+		// Enable Webpack hot module replacement for reducers
+		module.hot.accept('../reducers', () => {
+			const nextReducer = require('../reducers');
+			store.replaceReducer(nextReducer);
+		});
+	}
+
+	return store;
 }
