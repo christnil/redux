@@ -20,7 +20,6 @@
     "babel": "^5.8.23",
     "classnames": "^2.1.2",
     "express": "^4.13.3",
-    "jade": "^1.11.0",
     "react": "^0.13.3",
     "react-redux": "^2.1.2",
     "redux": "^3.0.0",

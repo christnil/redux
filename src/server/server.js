@@ -51,7 +51,7 @@ function renderFullPage(html, initialState) {
     <!doctype html>
     <html>
       <head>
-        <title>Redux Universal Example</title>
+        <title>TODO</title>
       </head>
       <body>
         <div id="root" class="todoapp">${html}</div>
