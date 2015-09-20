@@ -7,10 +7,11 @@ import rootReducer from '../client/reducers';
 import App from '../client/containers/App';
 
 const app = Express();
-const port = 3000;
+const port = process.env.PORT || 3002;
 
 // Use this middleware to serve up static files built into the public directory
 app.use(require('serve-static')(path.join(__dirname, '../../public')));
+
 
 var todos = [{
   text: 'Use Redux',
