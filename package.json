@@ -36,7 +36,7 @@
     "mocha-jsdom": "^1.0.0",
     "node-libs-browser": "^0.5.2",
     "raw-loader": "^0.5.1",
-    "react-transform-webpack-hmr": "^0.1.4",
+    "react-transform-hmr": "^0.1.4",
     "style-loader": "^0.12.3",
     "todomvc-app-css": "^2.0.1",
     "webpack": "^1.9.11",

@@ -14,9 +14,17 @@ app.use(require('serve-static')(path.join(__dirname, '../../dist')));
 app.set('view engine', 'jade');
 
 var todos = [{
-  text: 'Use Redux servers',
-  completed: false,
+  text: 'Use Redux',
+  completed: true,
   id: 0
+},{
+  text: 'Use server rendering',
+  completed: true,
+  id: 1
+},{
+  text: 'Use webpack with gulp',
+  completed: false,
+  id: 2
 }];
 
 // This is fired every time the server side receives a request
