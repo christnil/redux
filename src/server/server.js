@@ -13,10 +13,16 @@ const port = 3000;
 app.use(require('serve-static')(path.join(__dirname, '../../dist')));
 app.set('view engine', 'jade');
 
+var todos = [{
+  text: 'Use Redux servers',
+  completed: false,
+  id: 0
+}];
+
 // This is fired every time the server side receives a request
 app.use(function (req, res) {
     // Create a new Redux store instance
-  const store = createStore(rootReducer); // pass initial state
+  const store = createStore(rootReducer, {todos}); // pass initial state
 
   // Render the component to a string
   const html = React.renderToString(
